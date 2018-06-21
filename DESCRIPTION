@@ -1,11 +1,11 @@
 Package: Bermuda
 Type: Package
-Title: What the package does (short line)
+Title: Bernoulli and multinomial distribution allocation
 Version: 1.0
 Date: 2018-06-20
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Author: Ko Abe
+Maintainer: Ko Abe <ko.abe@med.nagoya-u.ac.jp>
+Description: Parameter estimation Bernoulli and multinomial mixture model
+License: GPL
 Imports: Rcpp (>= 0.12.17)
 LinkingTo: Rcpp, RcppArmadillo

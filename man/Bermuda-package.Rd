@@ -13,7 +13,7 @@
 The DESCRIPTION file:
 \packageDESCRIPTION{Bermuda}
 \packageIndices{Bermuda}
-~~ An overview of how to use the package, including the most important functions ~~
+Provide Bernoulli and multinomial distribution allocation.
 }
 \author{
 \packageAuthor{Bermuda}
