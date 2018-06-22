@@ -1,19 +1,19 @@
 # BERMUDA
 BERMUDA is an R package for Bernoulli and multinomial distribution allocation.
 
-###Depends:
+### Depends:
 
 R(>=3.4.1)
 
 Rcpp, RcppArmadillo
 
-###Authors:
+### Authors:
 
 Ko Abe and Teppei Shimamura
 
 Contact: ko.abe[at]med.nagoya-u.ac.jp and shimamura[at]med.nagoya-u.ac.jp
 
-##Installation
+## Installation
 
 Install the latest version of this package from Github by pasting in the following.
 
@@ -21,7 +21,7 @@ Install the latest version of this package from Github by pasting in the followi
 devtools::install_github("abikoushi/BERMUDA")
 ~~~
 
-##An example of synthetic data
+## An example of synthetic data
 
 ~~~R
 N <-100
@@ -45,9 +45,9 @@ print(rho)
 doPred(W, L, phi = fit$phi, p = fit$p, rho = fit$rho)
 ~~~
 
-##Genral overview
+## Genral overview
 We propose new probabilistic model called BERMUDA (BERnoulli and MUltinomial Distribution-base latent Allocation).
 
-##Reference
+## Reference
 Ko Abe, Masaaki Hirayama, Kinji Ohno, and Teppei Shimamura, A Latent Allocation Model for the Analysis of Microbial
 Composition and Disease, submitted.
