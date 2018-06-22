@@ -1,5 +1,5 @@
 # BERMUDA
-BERMUDA is an R package for Bernoulli and multinomial distribution allocation.
+BERMUDA is an R package for BERnoulli and MUltinomial Distribution-base latent Allocation
 
 ### Depends:
 
