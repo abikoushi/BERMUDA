@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // doEM
 List doEM(arma::vec y, arma::mat W, int L, arma::vec phi, arma::mat p, arma::vec rho, double gamma, double beta);
-RcppExport SEXP _Bermuda_doEM(SEXP ySEXP, SEXP WSEXP, SEXP LSEXP, SEXP phiSEXP, SEXP pSEXP, SEXP rhoSEXP, SEXP gammaSEXP, SEXP betaSEXP) {
+RcppExport SEXP _BERMUDA_doEM(SEXP ySEXP, SEXP WSEXP, SEXP LSEXP, SEXP phiSEXP, SEXP pSEXP, SEXP rhoSEXP, SEXP gammaSEXP, SEXP betaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -26,7 +26,7 @@ END_RCPP
 }
 // doPred
 arma::vec doPred(arma::mat W, int L, arma::vec phi, arma::mat p, arma::vec rho);
-RcppExport SEXP _Bermuda_doPred(SEXP WSEXP, SEXP LSEXP, SEXP phiSEXP, SEXP pSEXP, SEXP rhoSEXP) {
+RcppExport SEXP _BERMUDA_doPred(SEXP WSEXP, SEXP LSEXP, SEXP phiSEXP, SEXP pSEXP, SEXP rhoSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -41,12 +41,12 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_Bermuda_doEM", (DL_FUNC) &_Bermuda_doEM, 8},
-    {"_Bermuda_doPred", (DL_FUNC) &_Bermuda_doPred, 5},
+    {"_BERMUDA_doEM", (DL_FUNC) &_BERMUDA_doEM, 8},
+    {"_BERMUDA_doPred", (DL_FUNC) &_BERMUDA_doPred, 5},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_Bermuda(DllInfo *dll) {
+RcppExport void R_init_BERMUDA(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }
