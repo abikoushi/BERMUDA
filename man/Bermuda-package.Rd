@@ -1,18 +1,18 @@
-\name{Bermuda-package}
-\alias{Bermuda-package}
-\alias{Bermuda}
+\name{BERMUDA-package}
+\alias{BERMUDA-package}
+\alias{BERMUDA}
 \docType{package}
 \title{
-\packageTitle{Bermuda}
+\packageTitle{BERMUDA}
 }
 \description{
-\packageDescription{Bermuda}
+\packageDescription{BERMUDA}
 }
 \details{
 Provide Bernoulli and multinomial distribution allocation.
 }
 \author{
-\packageAuthor{Bermuda}
+\packageAuthor{BERMUDA}
 
-Maintainer: \packageMaintainer{Bermuda}
+Maintainer: \packageMaintainer{BERMUDA}
 }

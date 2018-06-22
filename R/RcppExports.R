@@ -2,10 +2,10 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 doEM <- function(y, W, L, phi, p, rho, gamma, beta) {
-    .Call(`_Bermuda_doEM`, y, W, L, phi, p, rho, gamma, beta)
+    .Call(`_BERMUDA_doEM`, y, W, L, phi, p, rho, gamma, beta)
 }
 
 doPred <- function(W, L, phi, p, rho) {
-    .Call(`_Bermuda_doPred`, W, L, phi, p, rho)
+    .Call(`_BERMUDA_doPred`, W, L, phi, p, rho)
 }
 
