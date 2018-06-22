@@ -3,7 +3,7 @@ BERMUDA is an R package for BERnoulli and MUltinomial Distribution-base latent A
 
 ### Depends:
 
-R(>=3.4.1)
+R(>=3.5.0)
 
 Rcpp, RcppArmadillo
 
@@ -47,6 +47,12 @@ doPred(W, L, phi = fit$phi, p = fit$p, rho = fit$rho)
 
 ## Genral overview
 We propose new probabilistic model called BERMUDA (BERnoulli and MUltinomial Distribution-base latent Allocation).
+
+BERMUDA enables us to describe the differences in bacteria composition and disease among samples.
+
+In BERMUDA, abundances of each taxon can be viewed as a mixture of vari- ous groups where enables us to describe the differences in bacteria composition among samples.
+
+For details, see Abe et al.(2018).
 
 ## Reference
 Ko Abe, Masaaki Hirayama, Kinji Ohno, and Teppei Shimamura, A Latent Allocation Model for the Analysis of Microbial
