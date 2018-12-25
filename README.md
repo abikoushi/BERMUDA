@@ -24,6 +24,7 @@ devtools::install_github("abikoushi/BERMUDA")
 ## An example of synthetic data
 
 ~~~R
+library(BERMUDA)
 N <-100
 L <-3
 K <- 20
