@@ -1,78 +1,73 @@
 #include <RcppArmadillo.h>
-#include <typeinfo>
-#include <iostream>
 using namespace Rcpp;
-using namespace arma;
 // [[Rcpp::depends(RcppArmadillo)]]
-// [[Rcpp::plugins(cpp11)]]
 
-
-rowvec colSums(const mat & X){
+arma::rowvec colSums(const arma::mat & X){
   int nCols = X.n_cols;
-  rowvec out(nCols);
+  arma::rowvec out(nCols);
   for(int i = 0; i < nCols; i++){
     out[i] = sum(X.col(i));
   }
   return(out);
 }
 
-vec colMeans(const mat & X){
+arma::vec colMeans(const arma::mat & X){
   int nCols = X.n_cols;
-  vec out(nCols);
+  arma::vec out(nCols);
   for(int i = 0; i < nCols; i++){
     out(i) = sum(X.col(i))/X.n_rows;
   }
   return(out);
 }
 
-vec rowSums(const mat & X){
+arma::vec rowSums(const arma::mat & X){
   int nRows = X.n_rows;
-  vec out(nRows);
+  arma::vec out(nRows);
   for(int i = 0; i < nRows; i++){
     out(i) = sum(X.row(i));
   }
   return(out);
 }
 
-rowvec softmax(const rowvec & x){
+arma::rowvec softmax(const arma::rowvec & x){
   double tmp = max(x);
-  rowvec res = exp(x-tmp)/sum(exp(x-tmp));
+  arma::rowvec res = exp(x-tmp)/sum(exp(x-tmp));
   return res;
 }
 
-double logsumexp(const rowvec & x){
+double logsumexp(const arma::rowvec & x){
   double tmp = max(x);
-  return tmp + log(sum(exp(x-tmp)));
+  return tmp + std::log(sum(exp(x-tmp)));
 }
 
 
-double multi_lpmf(const rowvec & W, const double & M, const rowvec & p){
+double multi_lpmf(const arma::rowvec & W, const double & M, const arma::rowvec & p){
   int K = W.n_cols;
   double lp = 0;
   for(int k=0; k<K; k++){
       if(!(W[k]==0 && p[k]==0)){
-        lp = lp + W[k]*log(p[k])-lgamma(W[k]+1);
+        lp = lp + W[k]*std::log(p[k])-std::lgamma(W[k]+1);
       }
     }
-  lp = lp + lgamma(M+1);
+  lp = lp + std::lgamma(M+1);
   return lp;
 }
 
 
 // [[Rcpp::export]]
-List doEM(arma::vec y, arma::mat W, int L, arma::vec phi, arma::mat p, arma::vec rho, double gamma,double beta){
+List doEM(arma::vec y, arma::mat W, int L, arma::vec phi, arma::mat p, arma::vec rho, double gamma, double beta){
   arma::vec M;
   M = rowSums(W);
   int K = W.n_cols;
   int N = y.n_rows;
-  arma::mat z = zeros(N,L);
+  arma::mat z = arma::zeros(N,L);
   arma::rowvec unnorm(L);
   arma::rowvec unnorm2(L);
   arma::rowvec tmp;
   arma::vec tmp2;
   arma::vec phi2=phi;
   arma::mat p2=p;
-  vec rho2=rho;
+  arma::vec rho2=rho;
   bool tol;
   bool nan;
   int iter = 0;
@@ -83,7 +78,7 @@ List doEM(arma::vec y, arma::mat W, int L, arma::vec phi, arma::mat p, arma::vec
     loglik2 = 0;
   for(int n=0;n<N;n++){
     for(int l=0; l<L; l++){
-      unnorm[l] = beta*(log(phi[l]) + y[n]*log(rho[l]) + (1-y[n])*log(1-rho[l]) + multi_lpmf(W.row(n),M[n],p.row(l)));
+      unnorm[l] = beta*(std::log(phi[l]) + y[n]*std::log(rho[l]) + (1-y[n])*log(1-rho[l]) + multi_lpmf(W.row(n),M[n],p.row(l)));
     }
     loglik2 += logsumexp(unnorm/beta);
     z.row(n) = softmax(unnorm);
@@ -121,10 +116,10 @@ arma::vec doPred(arma::mat W, int L, arma::vec phi, arma::mat p, arma::vec rho){
   arma::vec rho2=rho;
   for(int n=0;n<N;n++){
     for(int l=0; l<L; l++){
-      unnorm[l] = log(phi[l]) + log(rho[l]) + multi_lpmf(W.row(n),M[n],p.row(l));
-      unnorm2[l] = log(phi[l]) + multi_lpmf(W.row(n),M[n],p.row(l));
+      unnorm[l] = std::log(phi[l]) + log(rho[l]) + multi_lpmf(W.row(n),M[n],p.row(l));
+      unnorm2[l] = std::log(phi[l]) + multi_lpmf(W.row(n),M[n],p.row(l));
     }
-    y[n] = exp(logsumexp(unnorm)-logsumexp(unnorm2));
+    y[n] = std::exp(logsumexp(unnorm)-logsumexp(unnorm2));
   }
   return y;
 }
