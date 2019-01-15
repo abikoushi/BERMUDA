@@ -57,4 +57,4 @@ For details, see Abe et al.(2018).
 
 ## Reference
 Ko Abe, Masaaki Hirayama, Kinji Ohno, and Teppei Shimamura, A Latent Allocation Model for the Analysis of Microbial
-Composition and Disease, submitted.
+Composition and Disease, BMC Bioinformatics. 2018.19(Suppl 19):519. https://doi.org/10.1186/s12859-018-2530-6.
